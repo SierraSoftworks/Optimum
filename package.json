@@ -1,0 +1,31 @@
+{
+  "name": "optimum",
+  "version": "1.0.0",
+  "description": "A full stack HTML+JS+CSS minification an optimization framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sierrasoftworks/optimum.git"
+  },
+  "author": "Benjamin Pannell <admin@sierrasoftworks.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sierrasoftworks/optimum/issues"
+  },
+  "homepage": "https://github.com/sierrasoftworks/optimum",
+
+  "dependencies": {
+    "cheerio": "*",
+    "uglify-js": "*",
+    "sqwish": "*",
+    "html-minifier": "*",
+    "lodash": "*",
+    "async": "*"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
