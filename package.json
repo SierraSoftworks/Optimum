@@ -1,6 +1,6 @@
 {
   "name": "optimum",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A full stack HTML+JS+CSS minification an optimization framework",
   "main": "index.js",
   "scripts": {
@@ -16,9 +16,7 @@
     "url": "https://github.com/sierrasoftworks/optimum/issues"
   },
   "homepage": "https://github.com/sierrasoftworks/optimum",
-
   "bin": "./bin",
-
   "dependencies": {
     "cheerio": "*",
     "uglify-js": "*",
