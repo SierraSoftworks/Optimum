@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/sierrasoftworks/optimum",
 
+  "bin": "./bin",
+
   "dependencies": {
     "cheerio": "*",
     "uglify-js": "*",

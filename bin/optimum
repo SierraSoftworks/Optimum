@@ -16,4 +16,4 @@ opt.on('document', function(relPath, content) {
 	fs.writeFileSync(path.resolve(opt.options.outputDirectory, relPath), content, { encoding: 'utf-8' });
 });
 
-opt.optimize('index.html');
+opt.optimize(process.argv[2]);

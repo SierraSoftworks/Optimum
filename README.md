@@ -1,6 +1,10 @@
 # Optimum
 **A full stack HTML+JS+CSS minification an optimization framework**
 
+```bash
+optimum index.html
+```
+
 Optimum attempts to take the headache out of content minification by removing many of the hurdles you generally need to jump through when developing your applications. It's most notable feature is the ability to automatically rewrite your HTML files to contain only minified JS and CSS files (which are intelligently aggregated) where ever possible.
 
 Optimum was originally designed to support our development of Angular.js applications, so in many ways it is targetted at applications which make use of some kind of `layout.html` file with a set of common resources. To cut down on application loading times it is often desirable to minify these resources and aggregate them into a single file, reducing the amount of bandwidth required as well as the number of required requests and therefore boosting first-load performance.
