@@ -13,6 +13,9 @@ Optimum was originally designed to support our development of Angular.js applica
  - No setup necessary, just run and you're done
  - Intelligent minification and aggregation
  - Develop naturally, deploy minified
+ - Retrieves and aggregates remote CSS and JS files automatically
 
 ## Limitations
-There are a number of small limitations regarding the way in which different cases are handled at the moment (keep in mind that this is the first release of Optimum and it was thrown together in a mere 3 hours...). Notably, Optimum assumes that any stylesheet or script it cannot find locally is hosted on a CDN, and will ignore it. It will also, in an effort to keep things a bit organized, only aggregate files within a common parent directory. So javascript files in `/js` won't be aggregated with files from `/ctrl` for example. It also assumes that pre-minified resources are named in the form `*.min.*`, and will not attempt to run UglifyJS or Sqwish on them.
+Optimum works best in scenarios where your design is based on a layout template of some kind, which contains common scripts and styles used throughout your application. This works well, since Optimum creates "bundles" for each of your resource types (CSS, JS etc.) which contain everything your site needs to run. The obvious downside is that if your website uses a lot of scripts, these files can become rather large (especially when you're working with libraries like Angular.js), but by minifying these files and bundling them together you can generally reduce site load times (especially on your first load) by a very large margin.
+
+Optimum will also attempt to maintain the order in which your scripts and styles appear to the best of its ability, however this is only maintained within resources of that type - so if you've got Coffee script files and JavaScript files then you'll need to ensure that they don't mind the order that they're loaded in - or do some manual re-ordering afterwards. For most scanarios this isn't an issue.

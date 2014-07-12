@@ -6,9 +6,9 @@ var fs = require('fs'),
 
 var opt = new Optimum();
 
-opt.on('resource', function(relPath, content) {
+opt.on('resource', function(type, relPath, content) {
 	//console.log('resource %s\n%s', relPath, content);
-	fs.writeFileSync(opt.options.outputDirectory + relPath, content, { encoding: 'utf-8' });
+	fs.writeFileSync(path.resolve(opt.options.outputDirectory, relPath), content, { encoding: 'utf-8' });
 });
 
 opt.on('document', function(relPath, content) {
@@ -16,4 +16,4 @@ opt.on('document', function(relPath, content) {
 	fs.writeFileSync(path.resolve(opt.options.outputDirectory, relPath), content, { encoding: 'utf-8' });
 });
 
-opt.optimize(process.argv[2]);
+opt.optimize(path.resolve(process.cwd(), process.argv[2]));
