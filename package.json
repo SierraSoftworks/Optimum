@@ -16,7 +16,9 @@
     "url": "https://github.com/sierrasoftworks/optimum/issues"
   },
   "homepage": "https://github.com/sierrasoftworks/optimum",
-  "bin": "./bin",
+  "bin": {
+    "optimum": "./bin/optimum"
+  },
   "dependencies": {
     "cheerio": "*",
     "uglify-js": "*",
