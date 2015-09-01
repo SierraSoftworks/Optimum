@@ -14,7 +14,7 @@ opt.on('resource', function(type, relPath, content) {
 });
 
 opt.on('document', function(relPath, content) {
-	//console.log('document %s\n%s', relPath, content);
+	console.log('OPTIMIZED %s', relPath);
 	fs.writeFileSync(path.resolve(opt.options.outputDirectory, relPath), content, { encoding: 'utf-8' });
 });
 
@@ -22,4 +22,7 @@ async.series(_.map(process.argv.slice(2), function (htmlFile) {
 	return function (done) {
 		opt.optimize(path.resolve(process.cwd(), htmlFile), done);
 	};
-}));
+}), function (err) {
+	if (err) console.log(err);
+	console.log('Optimization complete');
+});
