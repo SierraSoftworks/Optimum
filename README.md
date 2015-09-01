@@ -31,3 +31,5 @@ Optimum will also attempt to maintain the order in which your scripts and styles
 
 ## Resource Resolution
 Unlike most other optimization tools, Optimum will attempt to resolve your scripts using whichever protocol is defined in your HTML files - so if you're using relative URLs then Optimum will attempt a filesystem lookup, but if you provide HTTP URLs then Optimum will download the scripts and styles from the provided locations. As a consequence, you need to ensure that those scripts are actually available at the specified location.
+
+Therefore, if you are hosting resources on a local webserver (http://localhost:3000/js/myResource.js) you will need to make sure that it is running before you start Optimum, otherwise you will receive a `Connection refused` error when it tries to retrieve the resources.
