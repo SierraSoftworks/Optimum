@@ -4,18 +4,34 @@ var fs = require('fs'),
 	path = require('path'),
 	Optimum = require('../lib/Optimum'),
 	async = require('async'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	colour = require('colour');
 
 var opt = new Optimum();
 
 opt.on('resource', function(type, relPath, content) {
-	//console.log('resource %s\n%s', relPath, content);
 	fs.writeFileSync(path.resolve(opt.options.outputDirectory, relPath), content, { encoding: 'utf-8' });
 });
 
 opt.on('document', function(relPath, content) {
-	console.log('OPTIMIZED %s', relPath);
+	console.log('OPTIMIZED'.green + ': %s', relPath);
 	fs.writeFileSync(path.resolve(opt.options.outputDirectory, relPath), content, { encoding: 'utf-8' });
+});
+
+opt.resolver.on('request', function (resource) {
+
+});
+
+opt.resolver.on('fsRead', function (resource, uri) {
+	console.log('GET'.cyan + ': %s', uri);
+});
+
+opt.resolver.on('httpGet', function (resource, uri) {
+	console.log('GET'.cyan + ': %s', uri);
+});
+
+opt.resolver.on('notFound', function (code, resource, uri) {
+	console.log('%d'.red + ': %s Not Found', code, resource);
 });
 
 async.series(_.map(process.argv.slice(2), function (htmlFile) {
@@ -23,6 +39,6 @@ async.series(_.map(process.argv.slice(2), function (htmlFile) {
 		opt.optimize(path.resolve(process.cwd(), htmlFile), done);
 	};
 }), function (err) {
-	if (err) console.log(err);
-	console.log('Optimization complete');
+	if (err) console.log(err.message.red + '\n' + err.stack);
+	console.log('Optimization complete'.green);
 });

@@ -20,14 +20,15 @@
     "optimum": "./bin/optimum"
   },
   "dependencies": {
+    "async": "*",
     "cheerio": "*",
-    "uglify-js": "*",
-    "sqwish": "*",
+    "colour": "^0.7.1",
     "html-minifier": "*",
     "lodash": "*",
-    "async": "*",
-    "yargs": "*",
-    "superagent": "*"
+    "sqwish": "*",
+    "superagent": "*",
+    "uglify-js": "*",
+    "yargs": "*"
   },
   "devDependencies": {
     "mocha": "*"
